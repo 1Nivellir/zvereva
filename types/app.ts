@@ -2,13 +2,14 @@ export interface AllInfoDTO {
 	companyName: string
 	description: string
 	contactInfo: AddressDTO
-	portfolio: {
-		imageId: string
-	} & BaseInfoDTO[]
+	portfolio: ProjectDTO[]
 	practice: BaseInfoDTO[]
 	employees: BaseInfoDTO[]
 }
 
+export interface ProjectDTO extends BaseInfoDTO {
+	imageId: string | null
+}
 
 export interface AddressDTO {
 	address: string

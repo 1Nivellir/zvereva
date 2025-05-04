@@ -1,12 +1,12 @@
 <template>
   <main>
     <div :class="[styles.homeBg]"></div>
-    <HomeHero
+    <LazyHomeHero
       :companyName="allInfo.companyName"
       :description="allInfo.description"
       :practice="allInfo.practice"
     />
-    <HomePractice />
+    <LazyHomePortfolio :projects="allInfo.portfolio" />
   </main>
 </template>
 

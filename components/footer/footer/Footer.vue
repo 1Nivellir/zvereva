@@ -1,5 +1,7 @@
 <template>
-  <footer :class="styles.footer"></footer>
+  <footer :class="styles.footer">
+    <h1>Footer</h1>
+  </footer>
 </template>
 
 <script lang="ts" setup>
