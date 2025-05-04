@@ -2,7 +2,9 @@ export interface AllInfoDTO {
 	companyName: string
 	description: string
 	contactInfo: AddressDTO
-	portfolio: BaseInfoDTO[]
+	portfolio: {
+		imageId: string
+	} & BaseInfoDTO[]
 	practice: BaseInfoDTO[]
 	employees: BaseInfoDTO[]
 }

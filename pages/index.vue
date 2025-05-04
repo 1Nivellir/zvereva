@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <main>
     <div :class="[styles.homeBg]"></div>
-    <div>
-      <HomeHero
-        :companyName="allInfo.companyName"
-        :description="allInfo.description"
-      />
-    </div>
-  </div>
+    <HomeHero
+      :companyName="allInfo.companyName"
+      :description="allInfo.description"
+      :practice="allInfo.practice"
+    />
+    <HomePractice />
+  </main>
 </template>
 
 <script lang="ts" setup>
