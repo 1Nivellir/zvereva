@@ -1,0 +1,53 @@
+.team {
+	background-color: #ffffff;
+	padding: 20px 0;
+}
+
+.title {
+	color: #000;
+	font-size: 32px;
+	font-weight: 500;
+	margin-bottom: 30px;
+}
+
+.team__list {
+	width: 100%;
+}
+
+.imageSlider {
+	width: 50%;
+	height: 250px;
+	object-fit: cover;
+}
+
+.imageSlider.default {
+	outline: 1px solid rgb(157, 157, 157);
+}
+
+.team__item {
+	display: flex;
+	gap: 20px;
+}
+
+.team__item__name {
+	color: #000;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.team__item__jobTitle {
+	color: #000;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.team__item__info {
+	display: flex;
+	flex-direction: column;
+}
+
+.team__listCustom {
+	display: flex;
+	justify-content: space-around;
+	gap: 10px;
+}

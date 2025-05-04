@@ -2,8 +2,9 @@
   <ClientOnly>
     <Swiper
       :modules="[Navigation]"
-      :slides-per-view="3"
+      :slides-per-view="slidesPerView"
       navigation
+      :breakpoints="breakpoints"
       @swiper="initSwiper"
       :space-between="50"
       :speed="1000"
@@ -17,13 +18,9 @@
   </ClientOnly>
 </template>
 
-<script lang="ts" setup>
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+<script lang="ts" setup generic="T">
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import type { BaseInfoDTO } from '~/types/app'
 import type { Swiper as SwiperType } from 'swiper/types'
 
 const swiperInstance = ref<SwiperType>()
@@ -36,7 +33,7 @@ const initSwiper = (instance: SwiperType) => {
 }
 
 defineProps<{
-  slideCard?: BaseInfoDTO[]
+  slideCard?: T[]
   slidesPerView?: number
   customButtonNext?: string
   customButtonPrev?: string

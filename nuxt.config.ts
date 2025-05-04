@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
   css: ['@/assets/scss/main.scss', 'swiper/swiper-bundle.css'],
-  modules: ['nuxt-swiper'],
+  modules: ['nuxt-swiper', '@nuxt/icon'],
   runtimeConfig: {
     public: {
       baseURL: process.env.NUXT_PUBLIC_URL,

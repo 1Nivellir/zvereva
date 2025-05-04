@@ -8,9 +8,10 @@
         <p :class="styles.description">
           {{ description }}
         </p>
-        <div style="width: 100%">
+        <div style="width: 100%" id="practice">
           <CommonSwiper
-            @instance="(instance) => (swiperInstance = instance)"
+            :breakpoints="breakpoints"
+            generic="BaseInfoDTO"
             :slides-per-view="3"
             :custom-button-next="styles.customButtonNext"
             :custom-button-prev="styles.customButtonPrev"
@@ -29,15 +30,23 @@
           </CommonSwiper>
           <!-- <div :class="styles.custom__buttonWrapper">
             <button
-              :class="[styles.customButtonPrev, 'btn-reset']"
-              @click.prevent="prev"
-              :disabled="!swiperInstance || swiperInstance.activeIndex === 0"
-            ></button>
+              :class="[styles.button, 'btn-reset']"
+              @click="prev"
+              :disabled="swiperInstance?.isBeginning"
+            >
+              <Icon name="mdi:arrow-left-bold" style="color: white" size="20" />
+            </button>
             <button
-              :class="[styles.customButtonNext, 'btn-reset']"
-              :disabled="!swiperInstance || swiperInstance.isEnd"
-              @click.prevent="next"
-            ></button>
+              :class="[styles.button, 'btn-reset']"
+              @click="next"
+              :disabled="swiperInstance?.isEnd"
+            >
+              <Icon
+                name="mdi:arrow-right-bold"
+                style="color: white"
+                size="20"
+              />
+            </button>
           </div> -->
         </div>
         <button :class="styles.button">Оставить заявку</button>
@@ -52,20 +61,22 @@ import AnimatedSection from '~/components/common/AnimatedSection.vue'
 import type { BaseInfoDTO } from '~/types/app'
 import type { Swiper as SwiperType } from 'swiper/types'
 
-const swiperInstance = ref<SwiperType>()
 defineProps<{
   practice: BaseInfoDTO[]
   companyName: string
   description: string
 }>()
 
-const next = () => {
-  console.log(swiperInstance.value)
-  swiperInstance.value?.slideNext()
-}
-
-const prev = () => {
-  swiperInstance.value?.slidePrev()
+const breakpoints = {
+  1200: {
+    slidesPerView: 3,
+  },
+  768: {
+    slidesPerView: 2,
+  },
+  480: {
+    slidesPerView: 1,
+  },
 }
 </script>
 

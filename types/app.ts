@@ -4,7 +4,7 @@ export interface AllInfoDTO {
 	contactInfo: AddressDTO
 	portfolio: ProjectDTO[]
 	practice: BaseInfoDTO[]
-	employees: BaseInfoDTO[]
+	employees: TeamDTO[]
 }
 
 export interface ProjectDTO extends BaseInfoDTO {
@@ -21,3 +21,8 @@ export interface BaseInfoDTO {
 	description: string
 }
 
+export interface TeamDTO {
+	imageId: string 
+	name: string
+	jobTitle: string
+}

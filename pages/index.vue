@@ -7,6 +7,7 @@
       :practice="allInfo.practice"
     />
     <LazyHomePortfolio :projects="allInfo.portfolio" />
+    <LazyHomeTeam :team="allInfo.employees" />
   </main>
 </template>
 
