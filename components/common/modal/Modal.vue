@@ -22,7 +22,8 @@
               <form :class="styles.form">
                 <div :class="styles.formItem">
                   <label for="nameInput" :class="styles.label">Имя</label>
-                  <PrimeInputText
+                  <input
+                    type="text"
                     v-model="dataForm.name"
                     :class="styles.modal__input"
                     id="nameInput"
@@ -32,12 +33,11 @@
 
                 <div :class="styles.formItem">
                   <label for="basic" :class="styles.label">Телефон</label>
-                  <PrimeInputMask
+                  <input
+                    ref="phoneInput"
+                    type="tel"
                     :class="styles.modal__input"
-                    id="basic"
                     v-model="dataForm.mobileNumber"
-                    mask="+7 (999) 999-99-99"
-                    :auto-clear="false"
                     placeholder="+7 (__) ___-__-__"
                   />
                 </div>
@@ -90,12 +90,22 @@
 import Political from '../modalPotical/Political.vue'
 import styles from './modal.module.css'
 import { useRootStore } from '@/stores/root'
+
+import Inputmask from 'inputmask'
+
+const phoneInput = ref()
 const rootStore = useRootStore()
 const policy = ref(false)
 const success = ref(false)
 const isOpenPotical = ref(false)
 const textPolitic = ref('')
 const successText = ref('')
+
+watch(phoneInput, (newValue) => {
+  if (newValue) {
+    Inputmask({ mask: '+7 (999) 999-99-99' }).mask(phoneInput.value)
+  }
+})
 
 const handleClickPolitic = (value: boolean) => {
   isOpenPotical.value = value
