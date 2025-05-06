@@ -17,7 +17,7 @@ body {
 		padding: 0 40px;
 	}
 
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 560px) {
 		padding: 0 15px;
 	}
 }
@@ -34,122 +34,9 @@ body {
 	padding: 0;
 	list-style: none;
 }
-
-.home {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
-table {
-	border-spacing: 0;
-}
-.section__blogs {
-	max-width: 1470px;
-	background-color: var(--c-dark-bg);
-	padding: 100px 80px 0;
-	width: 100%;
-	display: flex;
-	row-gap: 40px;
-	flex-direction: column;
-
-	@media screen and (max-width: 1200px) {
-		padding: 80px 40px 0;
-	}
-
-	@media screen and (max-width: 640px) {
-		padding: 60px 20px 0;
-	}
-}
-.title {
-	color: #222;
-	font-family: Unbounded;
-	font-size: 30px;
-	font-style: normal;
+.section__title {
+	color: #000;
+	font-size: clamp(24px, 3.5vw,32px);
 	font-weight: 500;
-	line-height: 58px; /* 116% */
-	text-transform: uppercase;
-
-	@media screen and (max-width: 1790px) {
-		padding-right: 21%;
-	}
-
-	@media screen and (max-width: 1200px) {
-		padding-right: 0;
-		line-height: normal; /* 116% */
-	}
-
-	@media screen and (max-width: 500px) {
-		font-size: 20px;
-	}
-
-	// &::before {
-	// 	content: '';
-	// 	position: absolute;
-	// 	top: 0;
-	// 	transform: translateY(-85%);
-	// 	right: 23%;
-	// 	width: 2px;
-	// 	height: 340px;
-	// 	background-color: var(--c-active);
-
-	// 	@media screen and (max-width: 1790px) {
-	// 		right: 19%;
-	// 	}
-
-	// 	@media screen and (max-width: 1200px) {
-	// 		right: -2%;
-	// 	}
-	// 	@media screen and (max-width: 640px) {
-	// 		display: none;
-	// 	}
-	// }
-}
-
-.section {
-	padding-top: 30px;
-	padding-bottom: 30px;
-	min-height: 60vh;
-}
-
-.service__wrapper {
-	padding: 100px 80px 0;
-	min-height: 738px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-
-	@media screen and (max-width: 1200px) {
-		padding: 80px 40px 0;
-	}
-
-	@media screen and (max-width: 640px) {
-		padding: 80px 20px 0;
-	}
-
-	@media screen and (max-width: 480px) {
-		padding: 60px 10px 0;
-	}
-}
-
-.wrapper {
-	display: flex;
-	justify-content: space-between;
-	gap: 20px;
-	padding-right: 0;
-}
-.service {
-	padding: 0;
-
-	&__content {
-		padding: 80px;
-
-		@media screen and (max-width: 1200px) {
-			padding: 40px;
-		}
-
-		@media screen and (max-width: 640px) {
-			padding: 20px;
-		}
-	}
+	margin-bottom: 30px;
 }

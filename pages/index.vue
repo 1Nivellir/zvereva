@@ -1,13 +1,13 @@
 <template>
   <main>
     <div :class="[styles.homeBg]"></div>
-    <LazyHomeHero
+    <HomeHero
       :companyName="allInfo.companyName"
       :description="allInfo.description"
       :practice="allInfo.practice"
     />
-    <LazyHomePortfolio :projects="allInfo.portfolio" />
-    <LazyHomeTeam :team="allInfo.employees" />
+    <HomePortfolio :projects="allInfo.portfolio" />
+    <HomeTeam :team="allInfo.employees" />
     <ModalWindow />
   </main>
 </template>

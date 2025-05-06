@@ -13,7 +13,7 @@ export default () => {
       link: 'team',
     },
     {
-      title: 'Оставить заявку',
+      title: `Оставить${'\u00A0'}заявку`,
       link: 'leave-request',
     },
     {
