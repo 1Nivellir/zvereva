@@ -51,7 +51,7 @@
                     v-model="dataForm.description"
                   />
                 </div>
-                <div>
+                <div :class="styles.checkBoxWrapper">
                   <input
                     v-model="policy"
                     type="checkbox"
@@ -158,11 +158,12 @@ const getCorrectNumber = (params: string) => {
 }
 
 const submitForm = async () => {
-  dataForm.value.mobileNumber = getCorrectNumber(dataForm.value.mobileNumber)
+  const body = { ...dataForm.value }
+  body.mobileNumber = getCorrectNumber(dataForm.value.mobileNumber)
   try {
     const response = await $api('client/rq', {
       method: 'POST',
-      body: dataForm.value,
+      body,
     })
     if (!response) {
       successText.value = 'Ошибка при отправке заявки'

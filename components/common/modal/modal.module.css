@@ -67,9 +67,13 @@
 	background-color: #fff;
 }
 
+
+
 .successWrapper {
 	min-height: 150px;
 }
+
+
 .modal__close {
 	position: absolute;
 	top: 10px;
@@ -99,6 +103,8 @@
 	color: #364b8a;
 	border: none;
 	cursor: pointer;
+	max-width: max-content;
+	text-align: start;
 }
 .button {
 	background-color: #364b8a;
@@ -130,3 +136,16 @@
 	border: 1px solid #000;
 }
 
+.checkBoxWrapper {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+@media screen and (max-width: 600px) {
+	.modal__content {
+		max-width: calc(100% - 50px);
+	}
+	.successWrapper {
+		max-width: calc(100% - 50px);
+	}
+}
