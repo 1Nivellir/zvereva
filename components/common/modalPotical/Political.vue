@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import styles from './Political.module.css'
+import styles from './political.module.css'
 import { computed } from 'vue'
 
 const emit = defineEmits(['update:isOpen', 'update:resultPolitic'])
