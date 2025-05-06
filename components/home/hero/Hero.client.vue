@@ -49,7 +49,12 @@
             </button>
           </div> -->
         </div>
-        <button :class="styles.button">Оставить заявку</button>
+        <button
+          @click="rootStore.setValueModalWindow(true)"
+          :class="styles.button"
+        >
+          Оставить заявку
+        </button>
       </div>
     </section>
   </AnimatedSection>
@@ -59,8 +64,9 @@
 import styles from './hero.module.css'
 import AnimatedSection from '~/components/common/AnimatedSection.vue'
 import type { BaseInfoDTO } from '~/types/app'
-import type { Swiper as SwiperType } from 'swiper/types'
+import { useRootStore } from '@/stores/root'
 
+const rootStore = useRootStore()
 defineProps<{
   practice: BaseInfoDTO[]
   companyName: string

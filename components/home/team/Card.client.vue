@@ -1,7 +1,7 @@
 <template>
   <div :class="styles.team__item">
     <img
-      :src="item.imageId || '/img/default-image.png'"
+      :src="imageUrl[item.imageId] || '/img/default-image.png'"
       :alt="item.name"
       :class="[styles.imageSlider, item.imageId ? '' : styles.default]"
     />
@@ -23,9 +23,21 @@
 <script lang="ts" setup>
 import styles from './team.module.css'
 import type { TeamDTO } from '@/types/app'
-defineProps<{
+
+const imageUrl = ref<Record<string, string>>({})
+const props = defineProps<{
   item: TeamDTO
 }>()
+
+onMounted(async () => {
+  if (props.item.imageId) {
+    const url = await fetchImageBlob(props.item.imageId)
+    console.log(url)
+    if (url) {
+      imageUrl.value[props.item.imageId] = url
+    }
+  }
+})
 
 const getString = (name: string) => {
   const nameArray = name.split(' ')

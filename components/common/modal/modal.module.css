@@ -1,0 +1,132 @@
+:root {
+	--p-inputtext-border-color: #aaaaaa;
+	--p-inputtext-border-radius: 5px;
+	--p-inputtext-border-width: 1px;
+	--p-inputtext-border-style: solid;
+	--p-inputtext-color: #444444;
+	--p-inputtext-transition-duration: 0.3s;
+	--p-inputtext-background: #fff;
+	--p-inputtext-padding-y: 7px;
+	--p-inputtext-padding-x: 10px;
+	--p-inputtext-focus-border-color: #364b8a
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__title {
+	font-size: 24px;
+	font-weight: 400;
+	color: #121212;
+	margin-bottom: 20px;
+}
+
+.modal__input {
+	resize: vertical;
+	width: 100%;
+	border-radius: 10px;
+	border: 1px solid #000;
+}
+
+.textarea {
+	padding: 10px;
+	resize: vertical;
+	width: 100%;
+	outline: none;
+	border-radius: 10px;
+	border: 1px solid var(--p-inputtext-border-color);
+	transition: border-color 0.3s ease;
+}
+
+.textarea:focus {
+	border-color: var(--p-inputtext-focus-border-color);
+}
+
+.textarea:hover {
+	border-color: #121212;;
+}
+
+.modal__content {
+	padding: 20px;
+	position: absolute;
+	z-index: 10;
+	border-radius: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 500px;
+	width: 100%;
+	overflow: hidden;
+	max-height: 90vh;
+	background-color: #fff;
+}
+
+.successWrapper {
+	min-height: 150px;
+}
+.modal__close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+.formItem {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.label {
+	font-size: 16px;
+	font-weight: 600;
+	color: #121212;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.btnOpenPolitical {
+	background-color: transparent;
+	color: #364b8a;
+	border: none;
+	cursor: pointer;
+}
+.button {
+	background-color: #364b8a;
+	color: #fff;
+	border-radius: 10px;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+}
+
+.button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.checkbox {
+	opacity: 0;
+	position: relative;
+}
+
+.checkbox:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '';
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	border: 1px solid #000;
+}
+

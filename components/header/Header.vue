@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import styles from './header.module.css'
 import menuItems from '@/utils/menuItems'
+import { useRootStore } from '@/stores/root'
+
+const rootStore = useRootStore()
 </script>
 
 <template>
@@ -11,14 +14,19 @@ import menuItems from '@/utils/menuItems'
       <nav class="header__nav">
         <ul :class="[styles.list, 'list-reset']">
           <li v-for="item in menuItems()" :key="item.title">
-            <a :class="styles.link" :href="`#${item.link}`">{{ item.title }}</a>
+            <button
+              v-if="item.link === 'leave-request'"
+              @click="rootStore.setValueModalWindow(true)"
+              :class="[styles.link, 'btn-reset']"
+            >
+              {{ item.title }}
+            </button>
+            <a v-else :class="styles.link" :href="`#${item.link}`">{{
+              item.title
+            }}</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 </template>
-
-<style scoped>
-@import './header.module.css';
-</style>

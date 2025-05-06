@@ -9,6 +9,7 @@ export function useCustomFetch<T>(
   const defaults: UseFetchOptions<T> = {
     baseURL: options.baseURL ? options.baseURL : config.public.baseURL,
     key: url,
+    headers: {},
     onResponse({ request, response, options }) {},
     onResponseError({ request, response, options }) {},
   }

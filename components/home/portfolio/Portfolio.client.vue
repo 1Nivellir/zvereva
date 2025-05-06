@@ -3,10 +3,22 @@ import AnimatedSection from '~/components/common/AnimatedSection.vue'
 import styles from './portfolio.module.css'
 import type { ProjectDTO } from '~/types/app'
 
-defineProps<{
+const imagesUrls = ref<Record<string, string>>({})
+
+const props = defineProps<{
   projects: ProjectDTO[]
 }>()
 
+onMounted(async () => {
+  for (const item of props.projects) {
+    if (item.imageId) {
+      const url = await fetchImageBlob(item.imageId)
+      if (url) {
+        imagesUrls.value[item.imageId] = url
+      }
+    }
+  }
+})
 const breakpoints = {
   992: {
     slidesPerView: 2,
@@ -18,6 +30,7 @@ const breakpoints = {
   <AnimatedSection>
     <section :class="styles.portfolio" id="projects">
       <div :class="['container', styles.container]">
+        <img id="projects-img" />
         <h2 :class="styles.title">Наши проекты</h2>
 
         <div :class="styles.projects">
@@ -30,7 +43,7 @@ const breakpoints = {
             <template #slide="{ item }">
               <div :class="styles.project">
                 <img
-                  :src="item.imageId || '/img/card-vue.jpg'"
+                  :src="imagesUrls[item.imageId as string] || '/img/card-vue.jpg'"
                   :alt="item.name"
                   :class="styles.project__image"
                 />
