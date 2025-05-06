@@ -88,7 +88,7 @@
 
 <script lang="ts" setup>
 import Political from '../modalPotical/Political.vue'
-import styles from './Modal.module.css'
+import styles from './modal.module.css'
 import { useRootStore } from '@/stores/root'
 const rootStore = useRootStore()
 const policy = ref(false)
