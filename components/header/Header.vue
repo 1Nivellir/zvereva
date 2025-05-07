@@ -2,6 +2,7 @@
 import styles from './header.module.css'
 import menuItems from '@/utils/menuItems'
 import { useRootStore } from '@/stores/root'
+import { NuxtLink } from '#components'
 
 const rootStore = useRootStore()
 </script>
@@ -21,9 +22,9 @@ const rootStore = useRootStore()
             >
               {{ item.title }}
             </button>
-            <a v-else :class="styles.link" :href="`#${item.link}`">{{
+            <NuxtLink v-else :class="styles.link" :to="`#${item.link}`">{{
               item.title
-            }}</a>
+            }}</NuxtLink>
           </li>
         </ul>
       </nav>
