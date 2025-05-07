@@ -39,9 +39,9 @@
                     :class="styles.modal__input"
                     v-model="dataForm.mobileNumber"
                     placeholder="+7 (__) ___-__-__"
+                    @change="setValueNumber"
                   />
                 </div>
-
                 <div :class="styles.formItem">
                   <label for="nameInput" :class="styles.label">Сообщение</label>
                   <textarea
@@ -101,6 +101,15 @@ const isOpenPotical = ref(false)
 const textPolitic = ref('')
 const successText = ref('')
 
+const dataForm = ref({
+  name: '',
+  mobileNumber: '',
+  description: '',
+})
+
+const setValueNumber = (params: any) => {
+  dataForm.value.mobileNumber = params.target.value
+}
 watch(phoneInput, (newValue) => {
   if (newValue) {
     Inputmask({ mask: '+7 (999) 999-99-99' }).mask(phoneInput.value)
@@ -153,11 +162,6 @@ const fetchPolitical = async () => {
     console.log(error)
   }
 }
-const dataForm = ref({
-  name: '',
-  mobileNumber: '',
-  description: '',
-})
 
 const getCorrectNumber = (params: string) => {
   const numbers = params.match(/\d+/g)
@@ -170,20 +174,21 @@ const getCorrectNumber = (params: string) => {
 const submitForm = async () => {
   const body = { ...dataForm.value }
   body.mobileNumber = getCorrectNumber(dataForm.value.mobileNumber)
-  try {
-    const response = await $api('client/rq', {
-      method: 'POST',
-      body,
-    })
-    if (!response) {
-      successText.value = 'Ошибка при отправке заявки'
-      success.value = true
-    }
-    successText.value = response as string
-    success.value = true
-  } catch (error) {
-    console.log(error)
-  }
+  console.log(body)
+  // try {
+  //   const response = await $api('client/rq', {
+  //     method: 'POST',
+  //     body,
+  //   })
+  //   if (!response) {
+  //     successText.value = 'Ошибка при отправке заявки'
+  //     success.value = true
+  //   }
+  //   successText.value = response as string
+  //   success.value = true
+  // } catch (error) {
+  //   console.log(error)
+  // }
 }
 </script>
 

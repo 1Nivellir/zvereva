@@ -13,19 +13,19 @@
 	padding-bottom: 20px;
 }
 .container {
-	padding-top: 200px;
+	padding-top: 80px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: flex-start;
-	height: 80%;
+	height: 70%;
 }
 
 @media screen and (max-width: 992px) {
 	.container {
 		height: auto;
-		padding-top: 100px;
+		padding-top: 30px;
 	}
 }
 .title {

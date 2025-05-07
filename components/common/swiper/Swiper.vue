@@ -3,6 +3,7 @@
     <Swiper
       :modules="[Navigation]"
       :slides-per-view="slidesPerView"
+      :slides-per-group="1"
       navigation
       :breakpoints="breakpoints"
       @swiper="initSwiper"

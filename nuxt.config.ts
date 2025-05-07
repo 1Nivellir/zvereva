@@ -4,6 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
   css: ['@/assets/scss/main.scss', 'swiper/swiper-bundle.css'],
+  devServer: {
+    host: '0.0.0.0',
+    port: 3002,
+  },
   modules: ['nuxt-swiper', '@nuxt/icon', '@pinia/nuxt'],
   runtimeConfig: {
     public: {
