@@ -14,25 +14,20 @@
 	left: -40px;
   width: 60px;
 
+	opacity: 0.6;
 	z-index: 100;
   height: 60px;
   cursor: pointer;
 }
 .buttonsSwiperNext {
 	position: absolute;
+	opacity: 0.6;
 	top: 50%;
 	right: -45px;
   width: 60px;
 
   height: 60px;
   cursor: pointer;
-}
-
-.buttonsSwiperNext:disabled {
-	opacity: 0.5;
-}
-.buttonsSwiperPrev:disabled {
-	opacity: 0.5;
 }
 
 @media screen and (max-width: 560px) {
