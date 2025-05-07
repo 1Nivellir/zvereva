@@ -174,21 +174,20 @@ const getCorrectNumber = (params: string) => {
 const submitForm = async () => {
   const body = { ...dataForm.value }
   body.mobileNumber = getCorrectNumber(dataForm.value.mobileNumber)
-  console.log(body)
-  // try {
-  //   const response = await $api('client/rq', {
-  //     method: 'POST',
-  //     body,
-  //   })
-  //   if (!response) {
-  //     successText.value = 'Ошибка при отправке заявки'
-  //     success.value = true
-  //   }
-  //   successText.value = response as string
-  //   success.value = true
-  // } catch (error) {
-  //   console.log(error)
-  // }
+  try {
+    const response = await $api('client/rq', {
+      method: 'POST',
+      body,
+    })
+    if (!response) {
+      successText.value = 'Ошибка при отправке заявки'
+      success.value = true
+    }
+    successText.value = response as string
+    success.value = true
+  } catch (error) {
+    console.log(error)
+  }
 }
 </script>
 
