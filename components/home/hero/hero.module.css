@@ -11,7 +11,7 @@
 }
 .swiperWrapper {
 	position: relative;
-	padding-bottom: 20px;
+	padding-bottom: 60px;
 }
 .container {
 	padding-top: 80px;
@@ -42,7 +42,7 @@
 	line-height: 28px;
 	color: #ffffff;
 	max-width: 500px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 
 .titleSlider {

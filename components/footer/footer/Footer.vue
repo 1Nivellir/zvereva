@@ -2,7 +2,7 @@
   <footer :class="styles.footer">
     <div :class="['container', styles.footer__container]">
       <div :class="styles.footer__info">
-        <h2 :class="styles.footerName">{{ footerInfo.companyName }}</h2>
+        <h3 :class="styles.footerName">{{ footerInfo.companyName }}</h3>
       </div>
       <div :class="styles.footer__contacts">
         <h4 :class="styles.footer__title">Контакты</h4>

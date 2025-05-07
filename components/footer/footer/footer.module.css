@@ -19,25 +19,38 @@
 
 .footerName {
 	padding: 0;
-	font-size: clamp(20px, 2vw, 30px);
-	font-weight: 600;
+  color: #000;
+  font-size: clamp(16, 2vw, 24px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: clamp(24px, 2vw, 58px);
+  text-transform: uppercase;
 }
 
 
 .footer__address {
 	font-style: normal;
-	font-size:  clamp(14px, 3.5vw, 18px);
-	font-weight: 400;
+	color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  padding-bottom: 2px;
 }
 
-.footer__title {
-	font-size: clamp(18px, 3.5vw, 25px);
-	font-weight: 600;
+.footer__title {	
+	font-size: clamp(18px, 3.5vw, 22px);
+	font-weight: 500;
+	color: #000;
 }
 
 .footer__phone {
-	text-decoration: none;
 	color: #000;
-	font-size:  clamp(14px, 3.5vw, 18px);
-	font-weight: 400;
+  text-decoration: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  padding-bottom: 2px;
 }
