@@ -4,11 +4,12 @@
       :modules="[Navigation]"
       :slides-per-view="slidesPerView"
       :slides-per-group="1"
-      navigation
+      :loop="true"
       :breakpoints="breakpoints"
       @swiper="initSwiper"
       :space-between="50"
       :speed="1000"
+      class="swiperCustom"
     >
       <SwiperSlide v-for="(item, index) in slideCard" :key="index">
         <div class="slider__wrapper">
@@ -20,6 +21,7 @@
 </template>
 
 <script lang="ts" setup generic="T">
+import 'swiper/css'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import type { Swiper as SwiperType } from 'swiper/types'
@@ -41,3 +43,5 @@ defineProps<{
   breakpoints?: any
 }>()
 </script>
+
+<style scoped lang="scss"></style>

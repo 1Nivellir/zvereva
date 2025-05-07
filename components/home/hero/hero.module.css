@@ -10,6 +10,7 @@
 
 }
 .swiperWrapper {
+	position: relative;
 	padding-bottom: 20px;
 }
 .container {
@@ -144,3 +145,4 @@
 	width: 20px;
 	height: 20px;
 }
+

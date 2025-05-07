@@ -3,10 +3,11 @@ import type { TeamDTO } from '@/types/app'
 import styles from './team.module.css'
 import AnimatedSection from '~/components/common/AnimatedSection.vue'
 import TeamCard from './Card.vue'
+import SwiperNavigation from '~/components/common/swiperNavigation/SwiperNavigation.vue'
 defineProps<{
   team: TeamDTO[]
 }>()
-
+const instanceSwiper = ref()
 const breakpoints = {
   992: {
     slidesPerView: 3,
@@ -50,6 +51,7 @@ const list = [
           <h2 class="section__title">Команда</h2>
           <div :class="styles.team__list" v-if="team.length > 3">
             <CommonSwiper
+              @instance="(e) => (instanceSwiper = e)"
               :breakpoints="breakpoints"
               :slides-per-view="1"
               generic="TeamDTO"
@@ -59,6 +61,10 @@ const list = [
                 <TeamCard :item="item" />
               </template>
             </CommonSwiper>
+            <SwiperNavigation
+              @next="instanceSwiper.slideNext()"
+              @prev="instanceSwiper.slidePrev()"
+            />
           </div>
           <div :class="styles.team__listCustom" v-else>
             <TeamCard v-for="(item, index) in team" :key="index" :item="item" />

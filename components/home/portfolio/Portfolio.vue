@@ -2,7 +2,8 @@
 import AnimatedSection from '~/components/common/AnimatedSection.vue'
 import styles from './portfolio.module.css'
 import type { ProjectDTO } from '~/types/app'
-
+import SwiperNavigation from '~/components/common/swiperNavigation/SwiperNavigation.vue'
+const instanceSwiper = ref()
 const imagesUrls = ref<Record<string, string>>({})
 
 const props = defineProps<{
@@ -34,6 +35,7 @@ const breakpoints = {
           <h2 class="section__title">Наши проекты</h2>
           <div :class="styles.projects">
             <CommonSwiper
+              @instance="(e) => (instanceSwiper = e)"
               :breakpoints="breakpoints"
               :slides-per-view="1"
               generic="ProjectDTO"
@@ -55,6 +57,10 @@ const breakpoints = {
                 </div>
               </template>
             </CommonSwiper>
+            <SwiperNavigation
+              @next="instanceSwiper.slideNext()"
+              @prev="instanceSwiper.slidePrev()"
+            />
           </div>
         </AnimatedSection>
       </ClientOnly>

@@ -11,6 +11,7 @@
           </p>
           <div :class="styles.swiperWrapper" style="width: 100%" id="practice">
             <CommonSwiper
+              @instance="setInstanceSwiper"
               :breakpoints="breakpoints"
               generic="BaseInfoDTO"
               :slides-per-view="3"
@@ -31,6 +32,12 @@
                 </div>
               </template>
             </CommonSwiper>
+            <SwiperNavigation
+              :disabled-next="false"
+              :disabled-prev="false"
+              @next="instanceSwiper.slideNext()"
+              @prev="instanceSwiper.slidePrev()"
+            />
           </div>
 
           <button
@@ -50,8 +57,28 @@ import styles from './hero.module.css'
 import AnimatedSection from '~/components/common/AnimatedSection.vue'
 import type { BaseInfoDTO } from '~/types/app'
 import { useRootStore } from '@/stores/root'
-
+import SwiperNavigation from '~/components/common/swiperNavigation/SwiperNavigation.vue'
 const rootStore = useRootStore()
+const instanceSwiper = ref()
+
+const setInstanceSwiper = (params: any) => {
+  instanceSwiper.value = params
+}
+
+// const disabledPrev = computed(() => {
+//   if (instanceSwiper.value) {
+//     console.log(instanceSwiper.value.isBeginning)
+//     return instanceSwiper.value.isBeginning
+//   }
+//   return false
+// })
+
+// const disabledNext = computed(() => {
+//   if (instanceSwiper.value) {
+//     return instanceSwiper.value.isEnd
+//   }
+//   return false
+// })
 defineProps<{
   practice: BaseInfoDTO[]
   companyName: string
