@@ -2,7 +2,6 @@
   <button
     :class="[styles.buttonsSwiperPrev, 'btn-reset']"
     @click="emit('prev')"
-    :disabled="disabledPrev"
   >
     <Icon
       name="material-symbols:arrow-back-ios-new-rounded"
@@ -10,7 +9,6 @@
     />
   </button>
   <button
-    :disabled="disabledNext"
     :class="[styles.buttonsSwiperNext, 'btn-reset']"
     @click="emit('next')"
   >
@@ -25,11 +23,6 @@
 import styles from './swiper-navigation.module.css'
 
 const emit = defineEmits(['next', 'prev'])
-
-defineProps<{
-  disabledPrev?: boolean
-  disabledNext?: boolean
-}>()
 </script>
 
 <style></style>

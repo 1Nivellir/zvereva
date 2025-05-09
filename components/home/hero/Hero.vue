@@ -31,8 +31,6 @@
               </template>
             </CommonSwiper>
             <SwiperNavigation
-              :disabled-next="false"
-              :disabled-prev="false"
               @next="instanceSwiper.slideNext()"
               @prev="instanceSwiper.slidePrev()"
             />
