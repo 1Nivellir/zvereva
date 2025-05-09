@@ -22,8 +22,6 @@
               <template #slide="{ item }">
                 <div :class="styles.practice__item">
                   <div :class="styles.descriptionWrapper">
-                    <img src="/svg/ok.svg" alt="ok" :class="styles.icon" />
-
                     <h3 :class="styles.titleSlider">{{ item.name }}</h3>
                   </div>
                   <p :class="styles.descriptionSlider">
