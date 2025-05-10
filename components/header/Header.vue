@@ -5,12 +5,17 @@ import { useRootStore } from '@/stores/root'
 import { NuxtLink } from '#components'
 
 const rootStore = useRootStore()
+
+import type { AllInfoDTO } from '@/types/app'
+const allInfo = useNuxtApp().$allInfo as AllInfoDTO
+
+const headerInfo = computed(() => allInfo)
 </script>
 
 <template>
   <header :class="styles.header">
     <div :class="['container', styles.header__container]">
-      <h3 :class="styles.header__logo">Зверева и партнеры</h3>
+      <h3 :class="styles.header__logo">{{ headerInfo.companyName }}</h3>
 
       <nav :class="styles.header__nav">
         <ul :class="[styles.list, 'list-reset']">
